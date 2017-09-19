@@ -19,17 +19,18 @@ public static String encriptar(String texto, String clave) {
         String encriptado = "";
         int textoAscci[] = new int[tamañoTexto];
         int claveAscci[] = new int[tamañoClave];
-
-        for (int i = 0; i <= tamañoTexto; i++) {
+        
+        for (int i = 0; i < tamañoTexto; i++) {
+            
             textoAscci[i] = texto.charAt(i);
         }
 
-        for (int i = 0; i <= tamañoClave; i++) {
+        for (int i = 0; i < tamañoClave; i++) {
             claveAscci[i] = clave.charAt(i);
         }
 
         //encriptar
-        for (int i = 0; i <= tamañoTexto; i++) {
+        for (int i = 0; i < tamañoTexto; i++) {
             p++;
             if (p >= tamañoClave) {
                 p = 0;
@@ -51,16 +52,16 @@ public static String encriptar(String texto, String clave) {
         int textoAscci[] = new int[tamañoTexto];
         int claveAscci[] = new int[tamañoClave];
 
-        for (int i = 0; i <= tamañoTexto; i++) {
+        for (int i = 0; i < tamañoTexto; i++) {
             textoAscci[i] = texto.charAt(i);
         }
 
-        for (int i = 0; i <= tamañoClave; i++) {
+        for (int i = 0; i < tamañoClave; i++) {
             claveAscci[i] = clave.charAt(i);
         }
 
         //desencriptar
-        for (int i = 0; i <= tamañoTexto; i++) {
+        for (int i = 0; i < tamañoTexto; i++) {
             p++;
             if (p >= tamañoClave) {
                 p = 0;
@@ -78,24 +79,22 @@ public static String encriptar(String texto, String clave) {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Encriptar(1) o Desencriptar(2)");
-        int n = sc.nextInt();
-        
-        if(n == 1){
+        Scanner sc = new Scanner(System.in);    
             System.out.println("escribe la frase");
             String palabra = sc.next();
             System.out.println("escribe la clave");
             String key = sc.next();
-            encriptar(palabra, key);
+            String e=encriptar(palabra, key);
+            System.out.println("la frase encriptada es:"+" "+e);
             System.out.println("La clave es:"+" "+ key);
-        }else{
+            System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
             System.out.println("escribe la codificacion");
-            String palabra = sc.next();
+            String cod = sc.next();
             System.out.println("escribe la clave");
-            String key = sc.next();
-            desencriptar(palabra, key);
-        }
+            String key2 = sc.next();
+            String d=desencriptar(cod, key2);
+            System.out.println("la frase desencriptada es:"+" "+d);
+        
     }
     
 }
